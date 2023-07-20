@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+ <body>
+
+
+  <!-- <h1>Hello Plotly (but not Dash)</h1> -->
+  <!-- <div id='chart' class='chart'”></div> -->
+
+
+
+  <section>
+    <div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
+        <div class="grid p-6 my-32 bg-gray-100 rounded place-content-center ">
+          <div class="max-w-md mx-auto text-center lg:text-left">
+            <header>
+              <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Torque</h2>
+  
+              <p class="mt-4 text-gray-500">
+                Torque is a measure of force. More specifically, it’s a rotational force that results in acceleration.
+
+                A unit of torque can be expressed as pound feet (lb ft) or Nm (Newton metres).              </p>
+            </header>
+  
+            
+          </div>
+        </div>
+  
+        <div id='tow' class="lg:col-span-2 lg:py-8">
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section>
+    <div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
+        <div id="pow" class="lg:col-span-2 lg:py-8">
+
+          </div> 
+        <div class="grid p-6 my-32 bg-gray-100 rounded place-content-center sm:p-8">
+          <div class="max-w-md mx-auto text-center lg:text-left">
+            <header>
+              <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">POWER</h2>
+  
+              <p class="mt-4 text-gray-500">
+                Brake horsepower or bhp refers to the horsepower of the car after taking into consideration friction between a car’s tyres and the road.
+              </p>
+            </header>
+  
+          
+            
+          </div>
+        </div>
+  
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- Container for demo purpose -->
+<div class="container my-24 mx-auto md:px-6">
+  <!-- Section: Design Block -->
+  <section class="mb-32">
+    <!-- <h2 class="mb-16 text-center text-2xl font-bold">Latest articles</h2> -->
+
+    <div class="mb-16 flex flex-wrap">
+      <div id="airncap" class=" mb-6 w-full shrink-0 grow-0 basis-auto lg:mb-0 lg:w-6/12 lg:pr-6">
+        <div 
+          class=" ripple relative overflow-hidden rounded-lg bg-cover bg-[50%] bg-no-repeat shadow-lg dark:shadow-black/20"
+          data-te-ripple-init data-te-ripple-color="light">
+          
+          
+          
+            <div
+              class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
+            </div>
+          
+        </div>
+      </div>
+
+      <div class="w-fullshrink-0 mt-24 grow-0 basis-auto lg:w-6/12 lg:pl-6">
+        <h3 class="mb-4 ml-24 text-2xl font-bold">Airbags and NCAP ratings</h3>
+        
+        <p class="mb-6 ml-24 text-neutral-500 dark:text-neutral-300">
+          Ut pretium ultricies dignissim. Sed sit amet mi eget urna placerat
+          vulputate. Ut vulputate est non quam dignissim elementum. Donec a
+          ullamcorper diam.
+        </p>
+        
+      </div>
+    </div>
+
+  </section>
+  <!-- Section: Design Block -->
+</div>
+<!-- Container for demo purpose -->
+
+
+
+<section>
+  <div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
+      <div id="mk" class="lg:col-span-2 lg:py-8">
+
+        </div> 
+      <div class="grid p-6 my-32 bg-gray-100 rounded place-content-center sm:p-8">
+        <div class="max-w-md mx-auto text-center lg:text-left">
+          <header>
+            <h2 class="text-xl font-bold text-gray-900 sm:text-3xl"> Mileage - ARAI Reported &  Driving Range (km)</h2>
+
+            <p class="mt-4 text-gray-500">
+              Brake horsepower or bhp refers to the horsepower of the car after taking into consideration friction between a car’s tyres and the road.
+            </p>
+          </header>
+
+        
+          
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+<!-- 
+
+<div id="mk" >
+</div> -->
+
+
+
+
+
+
+
+
+
+</body>
+
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+
+<script type='text/javascript'>
+
+  var tor = {{tor | safe}};
+  Plotly.plot('tow',tor,{});
+
+  var pow = {{pow | safe}};
+  Plotly.plot('pow',pow,{});
+
+  var airncap={{airncap | safe}};
+  // console.log(airncap);
+  Plotly.plot('airncap',airncap,{});
+
+  var mk={{mk | safe}};
+  Plotly.plot('mk',mk,{});
+
+
+</script>
+</html>

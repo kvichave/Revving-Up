@@ -1,0 +1,101 @@
+{% include "layout.html" %}
+{% block body %}
+
+
+
+<div class="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4">
+    <div class="flex flex-col lg:flex-row justify-between gap-8">
+        <div class="w-full lg:w-5/12 flex flex-col justify-center">
+            <h1 class="text-3xl lg:text-4xl font-bold leading-9 text-gray-800 dark:text-black pb-4">About Us</h1>
+            <p class="font-normal text-base leading-6 text-gray-600 dark:text-black">We are the students of CSE(Artificial Intelligence and Machine Learning). We created this video player web application to help the user for ease of playing videos online using a video link, with some customisable features provided to the user for greate look and appearance. Also if any user want to create a greate appeling embed code it generates for that user </p>
+        </div>
+        <div class="w-full lg:w-8/12 lg:pt-8">
+            <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-4 shadow-lg rounded-md">
+                <div class="p-4 pb-6 flex justify-center flex-col items-center">
+                    <img class="md:block hidden" src="{{ url_for('static', filename='profile.jpg') }}
+                    " alt="Alexa featured Image" />
+                    <img class="md:hidden block" src="{{ url_for('static', filename='profile.jpg') }}" alt="Alexa featured Image" />
+                    <p class="font-medium text-xl leading-5 text-gray-800 dark:text-black mt-4">KUNAL</p>
+                </div>
+                <div class="p-4 pb-6 flex justify-center flex-col items-center">
+                    <img class="md:block hidden" src="{{ url_for('static', filename='profile1.jpg') }}" alt="Olivia featured Image" />
+                    <img class="md:hidden block" src="{{ url_for('static', filename='profile1.jpg') }}" alt="Olivia featured Image" />
+                    <p class="font-medium text-xl leading-5 text-gray-800 dark:text-black mt-4">PRARTHANA</p>
+                </div>
+                <div class="p-4 pb-6 flex justify-center flex-col items-center">
+                    <img class="md:block hidden" src="{{ url_for('static', filename='profile2.jpg') }}" alt="Liam featued Image" />
+                    <img class="md:hidden block" src="{{ url_for('static', filename='profile2.jpg') }}" alt="Liam featued Image" />
+                    <p class="font-medium text-xl leading-5 text-gray-800 dark:text-black mt-4">SIDDHANT</p>
+                </div>
+                <div class="p-4 pb-6 flex justify-center flex-col items-center">
+                    <img class="md:block hidden" src="{{ url_for('static', filename='profile3.jpeg') }}" alt="Elijah featured image" />
+                    <img class="md:hidden block" src="{{ url_for('static', filename='profile3.jpeg') }}" alt="Elijah featured image" />
+                    <p class="font-medium text-xl leading-5 text-gray-800 dark:text-black mt-4">TAHA</p>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+
+    <div class="flex lg:flex-row flex-col justify-between gap-8 pt-12">
+        <div class="w-full lg:w-5/12 flex flex-col justify-center">
+            <h1 class="text-3xl lg:text-4xl font-bold leading-9 text-gray-800 dark:text-black pb-4">Project specification</h1>
+            <p class="font-normal text-base leading-6 text-gray-600 dark:text-black">In this project various languages had been use to provide a great user intraction on our web application.
+                This project video player is a one page project which dynamically update its content without refreshing the page. The above statical bars shows what languages and module were used in how much quantity-
+            </p>
+        </div>
+        <div class=" m-10 w-full lg:w-8/12">
+            <div class="w-full px-4 m-10 lg:w-5/12">
+                <div class="mb-12">
+                  <div class="bg-light relative h-[10px] w-full rounded-2xl">
+                    <div class="bg-teal-500	 absolute top-0 left-0 h-full w-1/2 rounded-2xl">
+                      <span
+                        class="bg-teal-500	 absolute -right-4 bottom-full mb-2 rounded-sm py-1 px-2 text-xs font-semibold text-black"
+                      >
+                        <span
+                          class="bg-teal-500	 absolute bottom-[-2px] left-1/2 -z-10 h-2 w-2 -translate-x-1/2 rotate-45 rounded-sm"
+                        ></span>
+                        Tailwind CSS
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-12">
+                  <div class="bg-dark relative h-[10px] w-full rounded-2xl">
+                    <div class="bg-teal-500	 absolute top-0 left-0 h-full w-[95%] rounded-2xl">
+                      <span
+                        class="bg-teal-500	 absolute -right-4 bottom-full mb-2 rounded-sm py-1 px-2 text-xs font-semibold text-black"
+                      >
+                        <span
+                          class="bg-teal-500	 absolute bottom-[-2px] left-1/2 -z-10 h-2 w-2 -translate-x-1/2 rotate-45 rounded-sm"
+                        ></span>
+                        Python-Flask
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-12">
+                  <div class="bg-dark relative h-[10px] w-full rounded-2xl">
+                    <div class="bg-teal-500	 absolute top-0 left-0 h-full w-[80%] rounded-2xl">
+                      <span
+                        class="bg-teal-500	 absolute -right-4 bottom-full mb-2 rounded-sm py-1 px-2 text-xs font-semibold text-black"
+                      >
+                        <span
+                          class="bg-teal-500	 absolute bottom-[-2px] left-1/2 -z-10 h-2 w-2 -translate-x-1/2 rotate-45 rounded-sm"
+                        ></span>
+                        JS-Ajax
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    
+    </div>
+</div>
+
+
+
+
+
+{% endblock body %}

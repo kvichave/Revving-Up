@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css" rel="stylesheet">
+
+</head>
+<body>
+  <header>
+    
+<nav class="m-4 bg-stone-950 border-gray-200 px-2 sm:px-4 py-2.5 rounded-lg light:bg-neutral-200	">
+  <div class="container flex flex-wrap items-center justify-between mx-auto">
+    <a href="/" class="flex items-center">
+        <img src="{{url_for('static',filename='laptop.png')}}" class="h-6 ml-4 mr-3 sm:h-9" alt="Logo" />
+        <span class="self-center text-xl font-semibold blackspace-nowrap dark:text-black">PYTHON.play</span>
+    </a>
+    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+    </button>
+    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+      <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-neutral-50	 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  light:border-gray-700">
+        <li>
+          <a href="/" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-black md:p-0 dark:text-{% if request.path == '/' %}black {% else %}gray-400{% endif %} md:dark:hover:text-black dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent" aria-current="page">Home</a>
+        </li>
+        <li>
+          <a href="about" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-{% if request.path == '/about' %}black {% else %}gray-400{% endif %} md:dark:hover:text-black dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent">About</a>
+        </li>
+        <li>
+          <a href="upcoming" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-black md:p-0 dark:text-{% if request.path == '/upcoming' %}black {% else %}gray-400{% endif %} md:dark:hover:text-black dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent">Upcoming!</a>
+        </li>
+        
+      </ul>
+    </div>
+    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+      <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-neutral-50	 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  light:border-gray-700">
+        <li>
+          <a href="localplayer" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-black md:p-0 dark:text-{% if request.path == 'localplayer' %}black {% else %}gray-400{% endif %} md:dark:hover:text-black dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent" aria-current="page">Local Video Player</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  </header>
+{% block body %}
+
+{% endblock body %}
+</body>
+
+</html>

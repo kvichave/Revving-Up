@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+			  src="https://code.jquery.com/jquery-3.7.0.js"
+			  integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+			  crossorigin="anonymous"></script>
+		
+</head>
+<body>
+
+<div id="main">
+
+  <div>
+<select onchange="carfun()" id="brand0" class="py-3 px-4 pr-9  w-32 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+  <option selected></option>
+  {% for brand in brands %}
+  <option>{{brand}}</option>
+  {%endfor%}
+</select>
+<!-- py-3 px-4 pr-9 ml-32 -->
+<select onchange="variantfun()" id="cars0" class="py-3 px-4 pr-9 ml-32  w-32 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+  <option selected></option>
+</select>
+<!-- ml-72 -->
+<select onchange="details()" id="variant0" class="py-3 px-0 pr-9 ml-32   w-32 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+  <option selected></option>
+</select>
+</div>
+
+
+<button onclick="add()" id="add" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+  Button
+</button>
+</div>
+
+
+
+
+
+<div id="t1"></div>
+<button type="button" id="plot" onclick="window.location.href='http://127.0.0.1:5000/plot';" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Red</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+      let count = 0;
+
+  
+      // res=""
+      var car=document.getElementById('cars').value;
+      var variant=document.getElementById('variant').value;
+      // console.log(brand);
+      // console.log(typeof(brand));
+     
+
+      
+  //     $.ajax({
+  //   type: "POST",
+  //   url:"/touch",
+  //   data: {"brand":brand,"car":car,"variant":variant},
+  //   success: function(response){
+  //     res = JSON.parse(response);
+  //     // callback(res)
+
+  //     // console.log(res)
+  //     // return(res)
+   
+  //   },
+  //   error: function(error){
+  //     console.log(error);
+  //   }
+ 
+
+  // })
+  
+      
+
+  function carfun(){
+    name="brand"+count
+    brand=document.getElementById(name).value;
+    console.log(brand);
+    // console.log()
+    // sendrec()
+    // console.log();
+    // console.log();
+
+
+    document.getElementById('cars'+count).innerHTML='<option selected></option>'
+
+    $.ajax({
+    type: "POST",
+    url:"/touch",
+    data: {"brand":brand,"car":"","variant":""},
+    success: function(response){
+      res = JSON.parse(response);
+      // callback(res)
+
+      console.log(res)
+      // return(res)
+      for (ele in res[0]){
+        // console.log(ele);
+                document.getElementById('cars'+count).innerHTML+='  <option>'+ele+'</option>'
+      }
+   
+    },
+    error: function(error){
+      console.log(error);
+    }
+ 
+
+  })
+      
+  }
+
+  function variantfun(){
+    cars=document.getElementById('cars'+count).value;
+    console.log(cars);
+    document.getElementById('variant'+count).innerHTML='<option selected></option>'
+    $.ajax({
+    type: "POST",
+    url:"/touch",
+    data: {"brand":"","car":cars,"variant":""},
+    success: function(response){
+      res = JSON.parse(response);
+      // callback(res)
+
+      console.log(res)
+      // return(res)
+      for (ele in res[1]){
+        // console.log(ele);
+                document.getElementById('variant'+count).innerHTML+='  <option>'+ele+'</option>'
+      }
+   
+    },
+    error: function(error){
+      console.log(error);
+    }
+ 
+
+  })
+      for (ele in res[1]){
+        document.getElementById('variant'+count).innerHTML+='  <option>'+ele+'</option>'
+
+
+      }
+  }
+  
+
+
+
+  function details(){
+    variant=document.getElementById('variant'+count).value;
+    console.log(cars);
+    // document.getElementById('variant').innerHTML='<option selected></option>'
+    $.ajax({
+    type: "POST",
+    url:"/touch",
+    data: {"brand":"","car":"","variant":variant},
+    success: function(response){
+      res = JSON.parse(response);
+      // callback(res)
+
+      console.log(res)
+      // return(res)
+      for (ele in res[2]){
+        
+        console.log(ele);
+                document.getElementById('t1').innerHTML+='<h3>'+ele+'</h3>'
+      }
+   
+    },
+    error: function(error){
+      console.log(error);
+    }
+ 
+
+  })
+      // for (ele in res[1]){
+      //   // document.getElementById('variant').innerHTML+='  <option>'+ele+'</option>'
+
+
+      // }
+  }
+
+
+
+  function add(){
+
+    count++;
+    
+    var div = document.getElementById('main').innerHTML+='<div><select onchange="carfun()" id="brand'+count+'" class="py-3 px-4 pr-9  w-32 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"><option selected></option>  {% for brand in brands %}  <option>{{brand}}</option>  {%endfor%}</select><!-- py-3 px-4 pr-9 ml-32 --><select onchange="variantfun()" id="cars'+ count+'" class="py-3 px-4 pr-9 ml-32  w-32 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">  <option selected></option></select><!-- ml-72 --><select onchange="details()" id="variant'+ count+'" class="py-3 px-0 pr-9 ml-32   w-32 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">  <option selected></option></select></div><button onclic="add()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">  Button</button>'
+
+  }
+
+
+
+
+    
+
+</script>
+
+
+
+</body>
+</html>
